@@ -1,0 +1,40 @@
+/* Navbar styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Ensures full width */
+    background-color: #333;
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers the content horizontally */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Keeps it on top of other elements */
+  }
+  
+  .navbar-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Add some margin to the content below the navbar */
+  body {
+    margin-top: 60px; /* Adjust based on the height of your navbar */
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .navbar-title {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .navbar-title {
+      font-size: 0.9rem;
+    }
+  }
+  
