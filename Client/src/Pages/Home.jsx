@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
-import { apiClient } from '../lib/api-client.js';
+import { HOST } from '../utils/Constants'
 import axios from 'axios'
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../components/navbar';
@@ -17,20 +17,15 @@ function Home() {
             const file = e.target.files[0];
             if (file && file.type === 'application/pdf') {
                 setSelectedFile(file);
-                toast.success('PDF file selected successfully!');
-
                 const formData = new FormData();
                 formData.append('file', file);
-
+                console.log(formData)
                 try {
-                    await axios.post(`http://localhost:3000/api/uploadPdf`, { name:'jithin' }, {
-                        headers: {
-                          'Content-Type': 'application/json'
-                        },
+                  const response=  await axios.post(`http://localhost:3000/api/uploadPdf`, formData, {
+                        headers: { },
                         withCredentials: true
-                      })
-
-                    if (response.ok) {
+                    })
+                    if (response.status === 200) {
                         toast.success('File uploaded successfully!');
                     } else {
                         toast.error('Failed to upload file');

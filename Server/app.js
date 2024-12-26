@@ -7,6 +7,7 @@ import routes from './router/routes.js'
 dotenv.config()
 const app = express()
 app.use(express.json())
+app.use('/uploads', express.static('uploads'));
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({
