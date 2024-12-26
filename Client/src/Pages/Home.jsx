@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
-import { HOST } from '../utils/Constants'
 import axios from 'axios'
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../components/navbar';
