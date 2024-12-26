@@ -4,6 +4,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import axios from 'axios'
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../components/navbar';
+import { HOST } from '../utils/Constants';
 function Home() {
     const [selectedFile, setSelectedFile] = useState(null);
 
@@ -20,8 +21,9 @@ function Home() {
                 formData.append('file', file);
                 console.log(formData)
                 try {
-                  const response=  await axios.post(`http://localhost:3000/api/uploadPdf`, formData, {
-                        headers: { },
+                    console.log({ HOST })
+                    const response = await axios.post(`${HOST}/api/uploadPdf`, formData, {
+                        headers: {},
                         withCredentials: true
                     })
                     if (response.status === 200) {
